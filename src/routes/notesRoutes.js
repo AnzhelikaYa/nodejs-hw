@@ -7,9 +7,10 @@ import { getAllNotesSchema, noteIdSchema, createNoteSchema, updateNoteSchema } f
 const router = Router();
 
 router.get("/notes", celebrate(getAllNotesSchema), getAllNotes);
-router.get("/notes/:noteId", celebrate(getAllNotesSchema) ,getNoteById);
+router.get("/notes/:noteId", celebrate(noteIdSchema) ,getNoteById);
 router.post("/notes", celebrate(createNoteSchema), createNote);
 router.delete("/notes/:noteId",  celebrate(noteIdSchema ) , deleteNote);
 router.patch("/notes/:noteId", celebrate(updateNoteSchema), updateNote);
+
 
 export default router;
